@@ -154,3 +154,24 @@ with col_graf4:
 st.subheader("Dados Detalhados")
 
 st.dataframe(df_filtrado)
+
+# No gráfico de barras
+grafico_cargos = px.bar(
+    top_cargos,
+    x='usd',
+    y='cargo',
+    color='cargo',          # <--- Isso deixa colorido
+    orientation='h',
+    template='plotly_dark',  # <--- Isso deixa o fundo do gráfico escuro
+    title="Top 10 cargos por salário médio"
+)
+
+# No histograma
+grafico_hist = px.histogram(
+    df_filtrado,
+    x='usd',
+    nbins=30,
+    template='plotly_dark',  # <--- Isso deixa o fundo do gráfico escuro
+    title="Distribuição de salários anuais"
+)
+
