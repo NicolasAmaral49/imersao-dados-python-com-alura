@@ -9,6 +9,23 @@ st.set_page_config(
     page_icon="📊",
     layout="wide",
 )
+# 1. CÓDIGO PARA O FUNDO ESCURO (ADICIONE NO INÍCIO DO SCRIPT)
+st.markdown(
+    """
+    <style>
+    /* Fundo da página principal */
+    .stApp {
+        background-color: #0e1117;
+        color: #ffffff;
+    }
+    /* Estilização extra para o menu lateral se desejar */
+    [data-testid="stSidebar"] {
+        background-color: #262730;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # --- Carregamento dos dados ---
 df = pd.read_csv("https://raw.githubusercontent.com/vqrca/dashboard_salarios_dados/refs/heads/main/dados-imersao-final.csv")
@@ -135,4 +152,5 @@ with col_graf4:
 
 # --- Tabela de Dados Detalhados ---
 st.subheader("Dados Detalhados")
+
 st.dataframe(df_filtrado)
